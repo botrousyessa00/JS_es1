@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title> ES 1 </title>
+    </head>
+    <body>
+    <button onClick="(function() { console.log('click da evento')})()"
+    >cliccami da evento
+    </button>
+    
+    <button onClick="funzioneClick('script')">
+        cliccami da script
+    </button>
+    <div id="div1">
+        <p>
+            Non premere, per cortesia
+        </p>
+    </div>
+    <button id="btn3">
+        cliccami da listener
+    </button>
+    <script>
+        // var funzioneClick = function(){
+        // //operazioni
+        // console.log("click da script");
+
+        // };
+        //richiamo la funzione che poi viene eseguita dal compilatore, quindi in questo caso viene eseguita una volta 
+        //funzioneClick();
+        //se voglia eseguirla subito nella dichiarazine basta che la criscondo con le parentesi come in esempio:
+        //  var funzioneClick = ( function(){ console.log("click da script"); } );
+        //richiamo il metedo dentro al tag e cosi pòosso eseguirlo ogni volta che clicco.
+
+    //click da listener
+
+    var funzioneClick = function(string){
+        console.log("click da "+string);
+
+    }; 
+    var i =0; 
+    //bisogna identificare il buttone univocamente neòlla pagine
+  
+
+    var bottone3 = document.getElementById("btn3");
+    bottone3.addEventListener("click", function(){
+        funzioneClick('listener')
+        //agggiungo nella funzione una riga di codice che mi permette di cambiare il colore al bottone
+        //trmite l'if quando clicco cambio il clore da rosso al colore inizale
+        
+        if(i%2==0){
+        bottone3.setAttribute("style","background-color: red")
+        //cambio la div e scrivo una frase nuovo
+        document.getElementById("div1").setAttribute("style", "background-color: pink")
+        document.getElementById("div1").innerHTML = "<h1> TI AVEVO DETTO DI NON CLICCARE MONA</h1>"
+         }else{
+            bottone3.setAttribute("style","background-color: ");   
+             //cambio la div e scrivo una frase nuovo
+        document.getElementById("div1").setAttribute("style", "background-color: ")
+        document.getElementById("div1").innerHTML = "<p1>Non premere, per cortesia</p1>"
+        }
+        i++;
+});
+
+
+    </script>
+    </body>
+</html>
